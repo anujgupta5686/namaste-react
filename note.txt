@@ -1,0 +1,31 @@
+// const heading = React.createElement("h1", { id: "heading" }, "Namaste React");
+const Heading = <h1 id="heading">Hello JSX</h1>;
+
+// Functional Based Component
+const Title = () => (
+  <>
+    <h1>I am Title Component 1</h1>
+    <h1>I am Title Component 2</h1>
+  </>
+);
+
+const number = 10000;
+const HeadingComponent1 = () => {
+  return (
+    <>
+      {number}
+      <h1 className="heading">Functional Component!</h1>
+    </>
+  );
+};
+
+const HeadingComponent2 = () => (
+  <div>
+    <Title />
+    <HeadingComponent1 />
+    <h1 className="heading">Second Method to Create Functional Component</h1>
+    <h1 className="heading">
+      Second 2.0 Method to Create Functional Component
+    </h1>
+  </div>
+);
