@@ -82,3 +82,5 @@ It's work three types.
 
 # useState:
 useState are use to create local variable inside functional component. useState always use inside the component. Can't be use Outside of the component. useState should not be work inside the condition if-else statement and for loop or any loop and also should not be use in the function. e.g. function sum(const[a,setA]=useState()). It will give error.
+  Syntax:
+  const[value,setValue]=useState();
