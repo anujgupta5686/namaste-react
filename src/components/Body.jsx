@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import  useOnlineStatus  from "../utils/useOnlineStatus";
 
 const Body = () => {
   console.log("Re-Render after change input value");
@@ -17,11 +18,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    // setLoading(true);
     try {
-      // const data = await fetch(
-      //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      // );
       const data = await fetch(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5904779&lng=73.7271909&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
@@ -30,7 +27,6 @@ const Body = () => {
         "Data::",
         res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
       );
-      // console.log("Response::", res);
 
       const restaurants =
         res.data.cards[4]?.card?.card?.gridElements?.infoWithStyle
@@ -43,6 +39,11 @@ const Body = () => {
       console.error("Error fetching data:", error);
     }
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>You are offline. Please check your internet connection.</h1>;
+
   if (newData.length === 0) {
     return <Shimmer />;
   }
@@ -89,7 +90,10 @@ const Body = () => {
       <div className="res-container">
         {newData.map((restaurent) => {
           return (
-            <Link key={restaurent.info.id} to={`/restaurants/${restaurent.info.id}`}>
+            <Link
+              key={restaurent.info.id}
+              to={`/restaurants/${restaurent.info.id}`}
+            >
               <RestaurantCard resData={restaurent} />
             </Link>
           );
