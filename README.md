@@ -88,3 +88,11 @@ useState are use to create local variable inside functional component. useState 
   # There are 2 type of the routing 
   - Client side Routing
   - Server side Routing
+
+  # Performace increase using this concept
+    - Chunking
+    - Code spliting 
+    - Dynamic bundling
+    - lazy loading
+    - on demand loading
+    - Dynamic importing

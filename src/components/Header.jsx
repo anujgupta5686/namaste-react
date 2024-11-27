@@ -24,7 +24,7 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/">Cart</Link>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <button
             className="login"
