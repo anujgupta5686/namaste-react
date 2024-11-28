@@ -1,4 +1,9 @@
-#heading {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* #heading {
   color: red;
 }
 
@@ -63,4 +68,4 @@
 .filter{
   display: flex;
   justify-content: space-between;
-}
+} */
